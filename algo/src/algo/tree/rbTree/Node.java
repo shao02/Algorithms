@@ -1,13 +1,13 @@
 package algo.tree.rbTree;
 
 public class Node<Key extends Comparable<Key>,Value> {
-  private Key key;
+  public Key key;
   private Value val;
-  private Node left;
-  private Node right;
+  public Node left;
+  public Node right;
   //parent color;
-  private boolean color;
-  private int N;
+  public boolean color;
+  public int N;
   
   public Node(Key key, Value val, boolean color,int N){
 	  this.key = key;
