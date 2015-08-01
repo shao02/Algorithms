@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 public class BreadthFirstSearch {
 	private static final Logger LOGGER = Logger.
-																		getLogger(BreadthFirstSearch.class.getName());
+	//																	getLogger(BreadthFirstSearch.class.getName());
 	static public void bfs(Node s){
 		if(s == null)
 			return ;
