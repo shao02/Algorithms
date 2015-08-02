@@ -6,26 +6,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 import java.util.logging.Logger;
-public class BreadthFirstSearch {
-	private static final Logger LOGGER = Logger.getLogger(BreadthFirstSearch.class.getName());
-	static public void bfs(Node s){
+public class DepthFirstSearch {
+	private static final Logger LOGGER = Logger.getLogger(DepthFirstSearch.class.getName());
+	static public void dfs(Node s){
 		if(s == null)
 			return ;
 		Set<Node> setForVisit = new HashSet<Node>();
-		Queue q = new LinkedList();
+		Stack st = new Stack();
 		LOGGER.info("Logger Name: "+LOGGER.getName());
-		q.add(s);
+		st.push(s);
 		setForVisit.add(s);
-		while(!q.isEmpty()){
-			Node cur = (Node)q.remove();
+		while(!st.isEmpty()){
+			Node cur = (Node)st.pop();
 			LOGGER.info("cur: "+cur.data);
 			Node child;
 			if(cur.neighbors == null)
 				continue;
 			for(Node neighbor : (List<Node>)cur.neighbors){
 				if(!setForVisit.contains(neighbor)){
-					q.add(neighbor);
+					st.push(neighbor);
 					setForVisit.add(neighbor);
 				}
 			}
@@ -81,6 +82,6 @@ public class BreadthFirstSearch {
 		neighbor1.add(node1);
 		neighbor1.add(node6);
 		node5.setNeighbors(neighbor1);
-		bfs(node5);
+		dfs(node5);
 	}
 }
